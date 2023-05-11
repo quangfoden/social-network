@@ -1,9 +1,9 @@
 const root = document.querySelector(':root');
 
+//SHOW HIDE RIGHT 
 
+// popup 
 const menuItems = document.querySelectorAll('.menu-item');
-
-
 const changeActiveItem = () => {
     menuItems.forEach(item => {
         item.classList.remove('active');
@@ -24,6 +24,8 @@ menuItems.forEach(item => {
         }
     })
 })
+// ===== 
+
 
 
 // =================MESSAGE==================
@@ -53,13 +55,23 @@ messageSearch.addEventListener('keyup', searchMessages);
 messageNotifition.addEventListener('click', () => {
     //console.log('xin chao');
     messageNotifition.querySelector('.notification-count').style.display = 'none';
-    messages.style.boxShadow = '0 0 1rem var(--color-primary)';
-    setTimeout(() => { messages.style.boxShadow = 'none' }, 2000)
+    messages.style.boxShadow = '0 0 1rem var(--color-primary)'
+    setTimeout(() => { messages.style.boxShadow = 'none' }, 2000);
+    messages.classList.toggle('showmessages');
 })
 
 // ==========END MESSAGE==============
 
+// =============request ==================
 
+const requests = document.querySelector('#new-myfriend');
+const request = document.querySelector('.friend-requests');
+requests.addEventListener('click', () => {
+    requests.querySelector('.notification-count').style.display = 'none';
+    request.style.boxShadow = '0 0 1rem var(--color-primary)'
+    setTimeout(() => { request.style.boxShadow = 'none' }, 3000);
+    request.classList.toggle('showrequests');
+});
 //Theme color /customsize
 
 const theme = document.querySelector('#theme');
@@ -81,9 +93,6 @@ theme.addEventListener('click', openThemeModal);
 // chose size
 
 const fontSizes = document.querySelectorAll('.chose-size');
-// const removeSizeselector = () => {
-//     fontSizes.forEach(size => { size.classList.remove('active') })
-// }
 
 const removeSizeselector = () => {
     fontSizes.forEach(size => {
@@ -125,30 +134,161 @@ fontSizes.forEach(size => {
     })
 })
 
+const fs1 = document.querySelector('.font-size-1');
+const fs2 = document.querySelector('.font-size-2');
+const fs3 = document.querySelector('.font-size-3');
+const fs4 = document.querySelector('.font-size-4');
+const fs5 = document.querySelector('.font-size-5');
+
+fs1.addEventListener('click', () => {
+    fs1.classList.add('active');
+    fs2.classList.remove('active');
+    fs3.classList.remove('active');
+    fs4.classList.remove('active');
+    fs5.classList.remove('active');
+})
+fs2.addEventListener('click', () => {
+    fs2.classList.add('active');
+    fs1.classList.remove('active');
+    fs3.classList.remove('active');
+    fs4.classList.remove('active');
+    fs5.classList.remove('active');
+})
+fs3.addEventListener('click', () => {
+    fs3.classList.add('active');
+    fs2.classList.remove('active');
+    fs1.classList.remove('active');
+    fs4.classList.remove('active');
+    fs5.classList.remove('active');
+})
+fs4.addEventListener('click', () => {
+    fs4.classList.add('active');
+    fs2.classList.remove('active');
+    fs1.classList.remove('active');
+    fs3.classList.remove('active');
+    fs5.classList.remove('active');
+})
+fs5.addEventListener('click', () => {
+    fs5.classList.add('active');
+    fs2.classList.remove('active');
+    fs3.classList.remove('active');
+    fs4.classList.remove('active');
+    fs1.classList.remove('active');
+})
+
 
 // ===================COLOR======================
 
-const colorPalette = document.querySelectorAll('chose-color')
+const colorPalette = document.querySelectorAll('.chose-color')
 colorPalette.forEach(color => {
-    colorPalette.addEventListener('click', (e) => {
+    let primaryHue
+    color.addEventListener('click', (e) => {
+        // console.log('xin chaooo')
         if (e.target.classList.contains('color-1')) {
             primaryHue = 252;
         }
         else if (e.target.classList.contains('color-2')) {
             primaryHue = 52;
         }
-        else if (color.classList.contains('color-3')) {
+        else if (e.target.classList.contains('color-3')) {
             primaryHue = 352;
         }
-        else if (color.classList.contains('color-4')) {
+        else if (e.target.classList.contains('color-4')) {
             primaryHue = 152;
         }
-        else if (color.classList.contains('color-5')) {
+        else if (e.target.classList.contains('color-5')) {
             primaryHue = 202;
         }
-        root.style.setProperty('----primary-color-hue', primaryHue)
+        root.style.setProperty('--primary-color-hue', primaryHue)
     })
-
 })
 
+const color1 = document.querySelector('.color-1');
+const color2 = document.querySelector('.color-2');
+const color3 = document.querySelector('.color-3');
+const color4 = document.querySelector('.color-4');
+const color5 = document.querySelector('.color-5');
 
+color1.addEventListener('click', () => {
+    color1.classList.add('active');
+    color2.classList.remove('active');
+    color3.classList.remove('active');
+    color4.classList.remove('active');
+    color5.classList.remove('active');
+})
+color2.addEventListener('click', () => {
+    color2.classList.add('active');
+    color1.classList.remove('active');
+    color3.classList.remove('active');
+    color4.classList.remove('active');
+    color5.classList.remove('active');
+})
+color3.addEventListener('click', () => {
+    color3.classList.add('active');
+    color2.classList.remove('active');
+    color1.classList.remove('active');
+    color4.classList.remove('active');
+    color5.classList.remove('active');
+})
+color4.addEventListener('click', () => {
+    color4.classList.add('active');
+    color2.classList.remove('active');
+    color1.classList.remove('active');
+    color3.classList.remove('active');
+    color5.classList.remove('active');
+})
+color5.addEventListener('click', () => {
+    color5.classList.add('active');
+    color2.classList.remove('active');
+    color3.classList.remove('active');
+    color4.classList.remove('active');
+    color1.classList.remove('active');
+})
+
+// ===================background-color==============================
+
+const bg1 = document.querySelector('.bg-1');
+const bg2 = document.querySelector('.bg-2');
+const bg3 = document.querySelector('.bg-3');
+
+let darkcolorlightness
+let lightcolorlightness
+let whitecolorlightness
+
+const changeBg = () => {
+    root.style.setProperty('--dark-color-lightness', darkcolorlightness)
+    root.style.setProperty('--light-color-lightness', lightcolorlightness)
+    root.style.setProperty('--white-color-lightness', whitecolorlightness)
+}
+
+bg1.addEventListener('click', () => {
+    bg1.classList.add('active');
+    bg2.classList.remove('active');
+    bg3.classList.remove('active');
+
+    darkcolorlightness = '17%'
+    lightcolorlightness = '95%'
+    whitecolorlightness = '100%'
+    changeBg();
+})
+
+bg2.addEventListener('click', () => {
+    darkcolorlightness = '80%'
+    lightcolorlightness = '15%'
+    whitecolorlightness = '15%'
+
+    bg2.classList.add('active');
+    bg1.classList.remove('active');
+    bg3.classList.remove('active');
+    changeBg();
+})
+bg3.addEventListener('click', () => {
+    darkcolorlightness = '95%'
+    lightcolorlightness = '0%'
+    whitecolorlightness = '10%'
+
+    bg3.classList.add('active');
+    bg1.classList.remove('active');
+    bg2.classList.remove('active');
+    changeBg();
+})
