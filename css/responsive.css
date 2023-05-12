@@ -1,8 +1,4 @@
 @media screen and (max-width:1200px) {
-    .container {
-        width: 96%;
-    }
-
     main .container {
         grid-template-columns: 5rem auto 30vw;
         gap: 1rem;
@@ -70,11 +66,19 @@
 
     main .container .right {
         position: fixed;
-        width: 100vw;
         height: 100vh;
     }
 
-
+    main .container .right .messages,
+    main .container .right .friend-requests,
+    main .container .right .notification-popup {
+        position: fixed;
+        right: 15vw;
+        bottom: 0;
+        width: 50vw;
+        height: 80vh;
+        overflow-y: auto;
+    }
 }
 
 @media screen and (max-width:679px) {
@@ -87,20 +91,66 @@
 
     main .container .left .sidebar {
         position: fixed;
-        left: -100%;
+        display: none;
+        right: 0;
     }
-    .btn-top{
+
+    .btn-top {
         display: none;
     }
-    .icon-show-sidebar{
+
+    .left .sidebar i {
+        margin: 10px;
+    }
+
+    .icon-show-sidebar {
         display: block;
         position: fixed;
-        z-index: 2001;;
+        z-index: 5;
         right: 0;
         top: 50vh;
     }
+
     .icon-show-sidebar i {
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: rgba(0, 0, 139, 0.342);
+    }
+
+    .icon-close-sidebar {
+        display: block;
+        position: fixed;
+        z-index: 100;
+        padding: 5px 5px;
+        right: 60px;
+        background: var(--color-light);
+        font-weight: bold;
+        border-radius: 50%;
+    }
+
+    .left .icon-close-sidebar i {
+        margin: 0;
+    }
+
+    main .container .right .messages,
+    main .container .right .friend-requests,
+    main .container .right .notification-popup {
+        width: 70vw;
+        max-height: 50vh;
+    }
+
+    .customsize-theme .chose-bg {
+        gap: 0.5rem;
+    }
+
+    .chose-bg .bg-1,
+    .bg-2,
+    .bg-3 {
+        width: 50%;
+    }
+
+    .chose-bg .bg-1 span,
+    .bg-2 span,
+    .bg-3 span {
+        display: none;
     }
 }

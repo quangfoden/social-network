@@ -118,7 +118,9 @@ btn:hover {
 .icon-show-sidebar {
     display: none;
 }
-
+.icon-close-sidebar{
+    display: none;
+}
 /* ================================= NAV-STYLE ========================= */
 nav {
     width: 100%;
@@ -145,7 +147,7 @@ nav .container {
 
 .search-bar input[type=search] {
     background: transparent;
-    width: 10vw;
+    width: 20vw;
     margin-left: 1rem;
     font-size: 0.9rem;
     color: var(--color-dark);
@@ -585,6 +587,7 @@ main .container .right::-webkit-scrollbar-thumb {
 .right .friend-requests {
     margin-top: 1rem;
     display: none;
+    background: var(--color-light);
 }
 .right .friend-requests.showrequests{
     display: block;
